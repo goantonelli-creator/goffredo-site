@@ -73,9 +73,49 @@
 }
 
 .hero__inner {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 80px;
+  align-items: center;
   position: relative;
   z-index: 2;
-  max-width: 700px;
+}
+
+.hero__content { max-width: 580px; }
+
+.hero__stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+}
+
+.hero__stat {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.hero__stat-num {
+  font-family: var(--font-display);
+  font-size: 48px;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.hero__stat-label {
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  .hero__inner { grid-template-columns: 1fr; gap: 48px; }
+  .hero__stats { grid-template-columns: 1fr 1fr; }
 }
 
 .hero__content { max-width: 640px; }
@@ -265,8 +305,8 @@
 
 /* ── MATESIS SECTION ──────────────────────────────────────────────────── */
 .matesis-section {
-  background: var(--night);
-  background-image: radial-gradient(ellipse at 80% 20%, rgba(204,31,31,0.15) 0%, transparent 60%);
+  background: #2D2D3A;
+  background-image: radial-gradient(ellipse at 80% 20%, rgba(30,43,142,0.15) 0%, transparent 60%);
   padding: 100px 0;
 }
 .matesis-section__inner {

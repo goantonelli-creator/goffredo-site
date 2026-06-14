@@ -18,7 +18,7 @@ function Nav() {
     <nav className={`nav ${scrolled ? 'nav--scrolled' : ''}`}>
       <div className="container nav__inner">
         <Link to="/">
-          <img src="/logo-goffredo.png" alt="Goffredo Antonelli" style={{ height: '64px', width: 'auto', filter: scrolled ? 'none' : 'brightness(0) invert(1)', transition: 'filter 0.25s ease' }} />
+          <img src="/logo-goffredo.png" alt="Goffredo Antonelli" style={{ height: '96px', width: 'auto', filter: scrolled ? 'none' : 'brightness(0) invert(1)', transition: 'filter 0.25s ease' }} />
         </Link>
         <button className="nav__burger" onClick={() => setMenuOpen(!menuOpen)} aria-label="Menu">
           <span style={{ background: scrolled ? 'var(--night)' : '#fff' }}/><span style={{ background: scrolled ? 'var(--night)' : '#fff' }}/><span style={{ background: scrolled ? 'var(--night)' : '#fff' }}/>
@@ -39,14 +39,41 @@ function Nav() {
 function Hero() {
   return (
     <section className="hero" id="top">
-      <div className="container hero__inner">
-        <div className="hero__content">
-          <span className="tag tag--outline-light hero__tag">Commercialista · Manager · Consulente</span>
-          <h1 className="hero__title">Dove la <em>crescita umana</em><br/>incontra l'<em>efficienza aziendale.</em></h1>
-          <p className="hero__sub">Unisco la passione per le persone a una visione strategica: trasformo il potenziale umano in performance, con strumenti concreti e una cultura organizzativa solida.</p>
-          <div className="hero__actions">
-            <a href="#cosa-faccio" className="btn btn--red">Scopri cosa faccio</a>
-            <a href="#matesis" className="btn btn--outline">Scopri Matesis →</a>
+      <div className="container">
+        <div className="hero__inner">
+          <div className="hero__content">
+            <span className="tag tag--outline-light hero__tag">Commercialista · Manager · Consulente</span>
+            <h1 className="hero__title">
+              Dove la <em>crescita umana</em><br/>
+              incontra l'<em>efficienza aziendale.</em>
+            </h1>
+            <p className="hero__sub">
+              Unisco la passione per le persone a una visione strategica: 
+              trasformo il potenziale umano in performance, con strumenti 
+              concreti e una cultura organizzativa solida.
+            </p>
+            <div className="hero__actions">
+              <a href="#cosa-faccio" className="btn btn--red">Scopri cosa faccio</a>
+              <a href="#matesis" className="btn btn--outline">Scopri Matesis →</a>
+            </div>
+          </div>
+          <div className="hero__stats">
+            <div className="hero__stat">
+              <span className="hero__stat-num">15+</span>
+              <span className="hero__stat-label">anni di esperienza</span>
+            </div>
+            <div className="hero__stat">
+              <span className="hero__stat-num">30+</span>
+              <span className="hero__stat-label">aziende affiancate</span>
+            </div>
+            <div className="hero__stat">
+              <span className="hero__stat-num">4</span>
+              <span className="hero__stat-label">aree di consulenza</span>
+            </div>
+            <div className="hero__stat">
+              <span className="hero__stat-num">1</span>
+              <span className="hero__stat-label">piattaforma software sviluppata</span>
+            </div>
           </div>
         </div>
       </div>
@@ -68,7 +95,7 @@ function ChiSono() {
           <p className="chi-sono__bio">La consulenza in controllo di gestione ha completato questa visione — imparare a costruire KPI, sistemi di reporting e modelli di full costing mi ha dato qualcosa che pochi professionisti HR hanno: la capacità di tradurre l'impatto delle persone in numeri concreti e in decisioni strategiche.</p>
           <p className="chi-sono__bio">Ho fondato Matesis — prima come metodo, poi come piattaforma software — per dare alle PMI italiane strumenti per misurare e sviluppare la performance organizzativa in modo strutturato e autonomo.</p>
           <p className="chi-sono__bio">Oggi affianco imprenditori e manager come consulente, board member e advisor. Il mio obiettivo è sempre lo stesso: trasformare il potenziale delle persone in risultati misurabili.</p>
-          <a href="https://www.linkedin.com/in/goffredoantonelli" target="_blank" rel="noopener" className="btn btn--outline-dark">LinkedIn →</a>
+          <a href="https://www.linkedin.com/in/goantonelli/" target="_blank" rel="noopener" className="btn btn--outline-dark">LinkedIn →</a>
         </div>
         <div className="chi-sono__quote">
           <blockquote>"Le aziende crescono quando crescono le persone. Il mio lavoro è fare in modo che questo accada con metodo, ascolto e risultati misurabili."</blockquote>
@@ -151,7 +178,7 @@ function AttivitaSvolte() {
           </div>
           <button className="attivita__btn" onClick={next} disabled={current === maxIndex}>→</button>
         </div>
-        <p className="attivita__altri">e altre 10+ esperienze in settori immobiliare, abbigliamento, consulenza ambientale e servizi.</p>
+        <p className="attivita__altri">e altre 30+ esperienze in settori immobiliare, abbigliamento, consulenza ambientale e servizi.</p>
       </div>
     </section>
   )
@@ -260,7 +287,7 @@ function Footer() {
     <footer className="footer">
       <div className="container footer__inner">
         <div className="footer__brand">
-          <img src="/logo-goffredo.png" alt="Goffredo Antonelli" style={{ height: '48px', width: 'auto', filter: 'brightness(0) invert(1)' }} />
+          <img src="/logo-goffredo.png" alt="Goffredo Antonelli" style={{ height: '96px', width: 'auto', filter: 'brightness(0) invert(1)' }} />
           <p>Commercialista, manager<br/>e consulente di performance management.</p>
           <p className="footer__piva">P.IVA IT 02576080697</p>
         </div>
@@ -286,7 +313,7 @@ function Footer() {
             <h5>Contatti</h5>
             <ul>
               <li><a href="mailto:info@matesis.it">info@matesis.it</a></li>
-              <li><a href="https://www.linkedin.com/in/goffredoantonelli" target="_blank" rel="noopener">LinkedIn</a></li>
+              <li><a href="https://www.linkedin.com/in/goantonelli/" target="_blank" rel="noopener">LinkedIn</a></li>
               <li><a href="#blog">Blog</a></li>
             </ul>
           </div>
