@@ -59,7 +59,7 @@ function Hero() {
           </div>
           <div className="hero__stats">
             <div className="hero__stat">
-              <span className="hero__stat-num">15+</span>
+              <span className="hero__stat-num">25+</span>
               <span className="hero__stat-label">anni di esperienza</span>
             </div>
             <div className="hero__stat">
