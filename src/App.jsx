@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import { Routes, Route, Link } from 'react-router-dom'
+import { client } from './sanityClient'
 import './App.css'
 import PerformanceManagement from './pages/PerformanceManagement.jsx'
 import ControlloGestione from './pages/ControlloGestione.jsx'
 import HROrganizzazione from './pages/HROrganizzazione.jsx'
 import RicercaSelezione from './pages/RicercaSelezione.jsx'
-
+import BlogPage from './pages/Blog.jsx'
+import Articolo from './pages/Articolo.jsx'
 function Nav() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
@@ -63,7 +64,7 @@ function Hero() {
               <span className="hero__stat-label">anni di esperienza</span>
             </div>
             <div className="hero__stat">
-              <span className="hero__stat-num">30+</span>
+              <span className="hero__stat-num">50+</span>
               <span className="hero__stat-label">aziende affiancate</span>
             </div>
             <div className="hero__stat">
@@ -178,7 +179,7 @@ function AttivitaSvolte() {
           </div>
           <button className="attivita__btn" onClick={next} disabled={current === maxIndex}>→</button>
         </div>
-        <p className="attivita__altri">e altre 30+ esperienze in settori immobiliare, abbigliamento, consulenza ambientale e servizi.</p>
+        <p className="attivita__altri">e altre 50+ esperienze in settori immobiliare, abbigliamento, consulenza ambientale e servizi.</p>
       </div>
     </section>
   )
@@ -213,12 +214,22 @@ function Matesis() {
 }
 
 function Blog() {
-  const posts = [
-    { title: 'Il suono delle relazioni', date: '2 apr', readTime: '3 min', slug: '#' },
-    { title: 'Il vero costo del turnover', date: '16 mar', readTime: '4 min', slug: '#' },
-    { title: 'La forza della gentilezza', date: '5 mar', readTime: '3 min', slug: '#' },
-    { title: 'Il peso invisibile', date: '15 feb', readTime: '3 min', slug: '#' },
-  ]
+  const [posts, setPosts] = useState([])
+
+  useEffect(() => {
+    client.fetch(`*[_type == "post"] | order(publishedAt desc)[0...4] {
+      _id,
+      title,
+      slug,
+      publishedAt,
+      readTime
+    }`).then(data => setPosts(data))
+  }, [])
+
+  const formatDate = (date) => {
+    return new Date(date).toLocaleDateString('it-IT', { day: 'numeric', month: 'short' })
+  }
+
   return (
     <section className="blog" id="blog">
       <div className="container">
@@ -229,15 +240,18 @@ function Blog() {
         </div>
         <div className="blog__grid">
           {posts.map((p, i) => (
-            <a href={p.slug} className="blog__card" key={i}>
-              <div className="blog__card-meta"><span>{p.date}</span><span>·</span><span>{p.readTime} di lettura</span></div>
+            <Link to={`/blog/${p.slug.current}`} className="blog__card" key={i}>
+              <div className="blog__card-meta">
+                <span>{formatDate(p.publishedAt)}</span>
+                {p.readTime && <><span>·</span><span>{p.readTime} min di lettura</span></>}
+              </div>
               <h3>{p.title}</h3>
               <span className="blog__card-arrow">→</span>
-            </a>
+            </Link>
           ))}
         </div>
         <div className="blog__cta">
-          <a href="https://www.goffredoantonelli.com/blog" target="_blank" rel="noopener" className="btn btn--outline-dark">Tutti gli articoli →</a>
+          <Link to="/blog" className="btn btn--outline-dark">Tutti gli articoli →</Link>
         </div>
       </div>
     </section>
@@ -353,6 +367,8 @@ export default function App() {
       <Route path="/controllo-di-gestione" element={<ControlloGestione />} />
       <Route path="/hr-organizzazione" element={<HROrganizzazione />} />
       <Route path="/ricerca-selezione" element={<RicercaSelezione />} />
+      <Route path="/blog" element={<BlogPage />} />
+<Route path="/blog/:slug" element={<Articolo />} />
     </Routes>
   )
 }
