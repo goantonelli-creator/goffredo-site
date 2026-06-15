@@ -56,6 +56,80 @@ export default function Articolo() {
     })
   }, [slug])
 
+  useEffect(() => {
+    if (!post) return
+
+    const pageTitle = post.seoTitle || post.title + ' — Goffredo Antonelli'
+    const pageDesc = post.seoDescription || post.excerpt || ''
+    const pageImage = post.mainImage
+      ? urlFor(post.mainImage).width(1200).url()
+      : 'https://www.goffredoantonelli.com/logo-goffredo-og.png'
+    const pageUrl = `https://www.goffredoantonelli.com/blog/${post.slug.current}`
+
+    document.title = pageTitle
+
+    const setMeta = (sel, val) => {
+      const el = document.querySelector(sel)
+      if (el) el.setAttribute('content', val)
+    }
+    const setLink = (sel, val) => {
+      const el = document.querySelector(sel)
+      if (el) el.setAttribute('href', val)
+    }
+
+    setMeta('meta[name="description"]', pageDesc)
+    setLink('link[rel="canonical"]', pageUrl)
+    setMeta('meta[property="og:title"]', pageTitle)
+    setMeta('meta[property="og:description"]', pageDesc)
+    setMeta('meta[property="og:image"]', pageImage)
+    setMeta('meta[property="og:url"]', pageUrl)
+    setMeta('meta[name="twitter:title"]', pageTitle)
+    setMeta('meta[name="twitter:description"]', pageDesc)
+    setMeta('meta[name="twitter:image"]', pageImage)
+
+    const schemaId = 'schema-article'
+    const existing = document.getElementById(schemaId)
+    if (existing) existing.remove()
+
+    const schema = {
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      headline: post.title,
+      description: post.excerpt || '',
+      image: pageImage,
+      datePublished: post.publishedAt,
+      dateModified: post.publishedAt,
+      url: pageUrl,
+      author: {
+        '@type': 'Person',
+        name: 'Goffredo Antonelli',
+        url: 'https://www.goffredoantonelli.com',
+        '@id': 'https://www.goffredoantonelli.com/#person'
+      },
+      publisher: {
+        '@type': 'Person',
+        name: 'Goffredo Antonelli',
+        url: 'https://www.goffredoantonelli.com'
+      },
+      mainEntityOfPage: {
+        '@type': 'WebPage',
+        '@id': pageUrl
+      }
+    }
+
+    const script = document.createElement('script')
+    script.id = schemaId
+    script.type = 'application/ld+json'
+    script.textContent = JSON.stringify(schema)
+    document.head.appendChild(script)
+
+    return () => {
+      document.title = 'Goffredo Antonelli — Commercialista, Manager e Consulente'
+      const el = document.getElementById(schemaId)
+      if (el) el.remove()
+    }
+  }, [post])
+
   const formatDate = (date) => {
     return new Date(date).toLocaleDateString('it-IT', { day: 'numeric', month: 'long', year: 'numeric' })
   }
@@ -81,7 +155,7 @@ export default function Articolo() {
           <div className="nav__links">
             <Link to="/blog">← Torna al blog</Link>
             <a href="https://www.matesis.it" target="_blank" rel="noopener">Matesis</a>
-            <Link to="/#contatti" className="btn btn--red nav__cta" style={{ color: '#fff' }}>Scrivimi</Link>
+            <Link to="/#contatti" className="btn btn--red nav__cta" style={{ color: '#fff' }}>Scrivimi →</Link>
           </div>
         </div>
       </nav>
