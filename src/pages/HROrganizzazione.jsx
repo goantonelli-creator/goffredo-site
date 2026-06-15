@@ -8,7 +8,7 @@ export default function HROrganizzazione() {
     <>
       <nav className="nav nav--scrolled" style={{ position: 'sticky' }}>
         <div className="container nav__inner">
-          <Link to="/"><img src="/logo-goffredo.png" alt="Goffredo Antonelli" style={{ height: '64px', width: 'auto' }} /></Link>
+          <Link to="/"><img src="/logo-goffredo.png" alt="Goffredo Antonelli" style={{ height: '96px', width: 'auto' }} /></Link>
           <div className="nav__links">
             <Link to="/">← Torna alla home</Link>
             <a href="https://www.matesis.it" target="_blank" rel="noopener">Matesis</a>
