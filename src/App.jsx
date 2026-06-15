@@ -96,7 +96,7 @@ function ChiSono() {
           <p className="chi-sono__bio">Ho costruito la mia carriera all'intersezione tra persone e numeri. Dopo anni come HR Manager e Temporary HR Manager in aziende di settori diversi, ho sviluppato una visione unica: quella di chi sa leggere un'organizzazione sia dalla prospettiva delle persone che da quella dei risultati economici.</p>
           <p className="chi-sono__bio">La consulenza in controllo di gestione ha completato questa visione — imparare a costruire KPI, sistemi di reporting e modelli di full costing mi ha dato qualcosa che pochi professionisti HR hanno: la capacità di tradurre l'impatto delle persone in numeri concreti e in decisioni strategiche.</p>
           <p className="chi-sono__bio">Ho fondato Matesis — prima come metodo, poi come piattaforma software — per dare alle PMI italiane strumenti per misurare e sviluppare la performance organizzativa in modo strutturato e autonomo.</p>
-          <p className="chi-sono__bio">Oggi affianco imprenditori e manager come consulente, board member e advisor. Il mio obiettivo è sempre lo stesso: trasformare il potenziale delle persone in risultati misurabili.</p>
+          <p className="chi-sono__bio">Oggi affianco imprenditori e manager in qualità di consulente, board member e advisor indipendente. Il mio obiettivo è sempre lo stesso: trasformare il potenziale delle persone in risultati misurabili.</p>
           <a href="https://www.linkedin.com/in/goantonelli/" target="_blank" rel="noopener" className="btn btn--outline-dark">LinkedIn →</a>
         </div>
         <div className="chi-sono__quote">
