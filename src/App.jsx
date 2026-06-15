@@ -142,12 +142,13 @@ function AttivitaSvolte() {
   const [current, setCurrent] = useState(0)
   const attivita = [
     { azienda: 'Omnia', settore: 'Formazione e consulenza', ruolo: 'Consulente organizzativo, gestione e direzionale, Mentor' },
-    { azienda: 'Syeew', settore: 'Produzione software', ruolo: 'Board member' },
     { azienda: 'Mooney Go', settore: 'Produzione software', ruolo: 'Consulente gestione risorse umane, Recruiter' },
     { azienda: 'Ikonic', settore: 'Fashion retailer', ruolo: 'Responsabile risorse umane' },
+    { azienda: 'Syeew', settore: 'Produzione software', ruolo: 'Board member' },
     { azienda: "Dell'Oglio 1870", settore: 'Fashion retailer', ruolo: 'Responsabile risorse umane' },
     { azienda: 'Julian Fashion', settore: 'Fashion retailer', ruolo: 'Responsabile risorse umane' },
     { azienda: 'Pluservice', settore: 'Produzione software', ruolo: 'Consulente gestione risorse umane, Recruiter' },
+    { azienda: 'Consorzio Alcanta', settore: 'Controllo qualità materiali da costruzione', ruolo: 'Consulente controllo di gestione' },
     { azienda: 'Stardiesel 2001', settore: 'Officina meccanica', ruolo: 'Progettista sistema Mbo, Mentor, Recruiter' },
     { azienda: 'Braviisol', settore: 'Progettazione e produzione piattaforme industriali', ruolo: 'Recruiter' },
   ]
