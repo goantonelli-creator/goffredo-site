@@ -66,7 +66,7 @@ function Hero() {
             </div>
             <div className="hero__stat">
               <span className="hero__stat-num">50+</span>
-              <span className="hero__stat-label">aziende in 8 anni da libero professionista</span>
+              <span className="hero__stat-label">aziende in 10 anni di attività da freelance</span>
             </div>
             <div className="hero__stat">
               <span className="hero__stat-num">4</span>
