@@ -8,6 +8,7 @@ import HROrganizzazione from './pages/HROrganizzazione.jsx'
 import RicercaSelezione from './pages/RicercaSelezione.jsx'
 import BlogPage from './pages/Blog.jsx'
 import Articolo from './pages/Articolo.jsx'
+import Card from './pages/Card.jsx'
 function Nav() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
@@ -371,6 +372,7 @@ export default function App() {
       <Route path="/ricerca-selezione" element={<RicercaSelezione />} />
       <Route path="/blog" element={<BlogPage />} />
 <Route path="/blog/:slug" element={<Articolo />} />
+      <Route path="/card" element={<Card />} />
     </Routes>
   )
 }

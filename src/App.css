@@ -934,3 +934,130 @@
   .blog-page__grid { grid-template-columns: 1fr; }
   .articolo__footer { flex-direction: column; }
 }
+/* ── DIGITAL BUSINESS CARD ──────────────────────────────────────────────── */
+.card-page {
+  min-height: 100vh;
+  background: #1A1A2E;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 24px;
+  max-width: 380px;
+  width: 100%;
+  padding: 40px 32px;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.35);
+}
+
+.card__header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.card__logo {
+  height: 56px;
+  width: auto;
+  margin-bottom: 20px;
+}
+
+.card__name {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 800;
+  color: #1A1A2E;
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+
+.card__role {
+  font-size: 14px;
+  color: #6B6B7D;
+  line-height: 1.5;
+}
+
+.card__contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.card__contact {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: #F7F7F9;
+  color: #1A1A2E;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.card__contact:hover {
+  background: #1A1A2E;
+  color: #ffffff;
+}
+
+.card__icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  color: #CC1F1F;
+}
+
+.card__contact:hover .card__icon {
+  color: #ffffff;
+}
+
+.card__save-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #CC1F1F;
+  color: #ffffff;
+  padding: 16px 24px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  width: 100%;
+  margin-bottom: 24px;
+  transition: all 0.2s;
+}
+
+.card__save-btn:hover {
+  background: #a81818;
+  transform: translateY(-1px);
+}
+
+.card__save-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #6B6B7D;
+}
+
+.card__icon-small {
+  width: 14px;
+  height: 14px;
+  color: #CC1F1F;
+}
+
+@media (max-width: 420px) {
+  .card { padding: 32px 24px; }
+}
