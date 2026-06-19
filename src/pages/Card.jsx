@@ -1,6 +1,18 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 
 export default function Card() {
+  const canvasRef = useRef(null)
+
+  useEffect(() => {
+    if (window.QRCode && canvasRef.current) {
+      window.QRCode.toCanvas(canvasRef.current, 'https://goffredoantonelli.com/card', {
+        width: 160,
+        margin: 1,
+        color: { dark: '#1A1A2E', light: '#FFFFFF' }
+      })
+    }
+  }, [])
+
   return (
     <div className="card-page">
       <div className="card">
@@ -50,6 +62,11 @@ export default function Card() {
           </svg>
           Salva contatto
         </a>
+
+        <div className="card__qr">
+          <canvas ref={canvasRef}></canvas>
+          <p>Scansiona per salvare il contatto</p>
+        </div>
 
         <div className="card__footer">
           <svg className="card__icon-small" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
