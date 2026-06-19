@@ -4,12 +4,23 @@ export default function Card() {
   const canvasRef = useRef(null)
 
   useEffect(() => {
-    if (window.QRCode && canvasRef.current) {
-      window.QRCode.toCanvas(canvasRef.current, 'https://goffredoantonelli.com/card', {
-        width: 160,
-        margin: 1,
-        color: { dark: '#1A1A2E', light: '#FFFFFF' }
-      })
+    const renderQR = () => {
+      if (window.QRCode && canvasRef.current) {
+        window.QRCode.toCanvas(canvasRef.current, 'https://goffredoantonelli.com/card', {
+          width: 160,
+          margin: 1,
+          color: { dark: '#1A1A2E', light: '#FFFFFF' }
+        })
+      }
+    }
+
+    if (window.QRCode) {
+      renderQR()
+    } else {
+      const script = document.createElement('script')
+      script.src = 'https://unpkg.com/qrcode@1.4.4/build/qrcode.min.js'
+      script.onload = renderQR
+      document.body.appendChild(script)
     }
   }, [])
 
